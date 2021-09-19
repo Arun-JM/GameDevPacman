@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b58a5f7a0c5eaf34bb6b81538a543189
+guid: 316caa14dad8a204d8f8ffe97d43e35b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -42,15 +42,15 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.51584065, y: 0.52262956}
+  spritePixelsToUnits: 89.9
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
@@ -91,14 +91,42 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline:
-    - - {x: -16, y: -1}
-      - {x: -16, y: -2}
-      - {x: 16, y: -2}
-      - {x: 16, y: -1}
-      - {x: 16, y: 1}
-      - {x: 16, y: 2}
-      - {x: -16, y: 2}
-      - {x: -16, y: 1}
+    - - {x: -4, y: 2}
+      - {x: -4, y: 1}
+      - {x: -3, y: 1}
+      - {x: -3, y: 0}
+      - {x: -2, y: 0}
+      - {x: -2, y: -1}
+      - {x: -3, y: -1}
+      - {x: -3, y: -4}
+      - {x: -2, y: -4}
+      - {x: -2, y: -3}
+      - {x: -1, y: -3}
+      - {x: -1, y: -2}
+      - {x: 0, y: -2}
+      - {x: 0, y: -1}
+      - {x: 1, y: -1}
+      - {x: 1, y: -2}
+      - {x: 2, y: -2}
+      - {x: 2, y: -3}
+      - {x: 3, y: -3}
+      - {x: 3, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: -1}
+      - {x: 3, y: -1}
+      - {x: 3, y: 0}
+      - {x: 4, y: 0}
+      - {x: 4, y: 1}
+      - {x: 5, y: 1}
+      - {x: 5, y: 2}
+      - {x: 2, y: 2}
+      - {x: 2, y: 4}
+      - {x: 1, y: 4}
+      - {x: 1, y: 5}
+      - {x: 0, y: 5}
+      - {x: 0, y: 4}
+      - {x: -1, y: 4}
+      - {x: -1, y: 2}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
