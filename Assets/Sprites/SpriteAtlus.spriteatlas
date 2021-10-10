@@ -158,7 +158,7 @@ SpriteAtlas:
   - RocketNew_0
   - RocketNew_1
   - RocketNew_4
-  - TestOutWall
+  - BigOutWall
   - JunctionWall
   - RocketDeath_8
   - RocketDeath_9
