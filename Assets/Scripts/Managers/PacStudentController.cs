@@ -10,8 +10,10 @@ public class PacStudentController : MonoBehaviour
     private float timeElapsed;
     private Animator pacAnimator;
     private Tilemap tilemap;
-    private const float duration = 0.1f;
+    private const float duration = 1f;
     private Vector3Int movement;
+    private Vector3 previousPosition;
+    private Vector3Int nextTile;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,11 +43,15 @@ public class PacStudentController : MonoBehaviour
                 default:
                     break;
             }
-            TileBase nextTile = tilemap.GetTile(Vector3Int.FloorToInt(transform.position) + movement);
-            if (tilemap)
+            nextTile = Vector3Int.FloorToInt(transform.position) + movement;
+            if (tilemap.GetSprite(nextTile) != null && (!tilemap.GetSprite(nextTile).name.Equals("RegPellet") || !tilemap.GetSprite(nextTile).name.Equals("PowerPellet")))
             {
-
+                movement = new Vector3Int(0, 0, 0);
             }
+            timeElapsed = 0;
+            previousPosition = transform.position;
         }
+        transform.position = Vector3.Lerp(transform.position, nextTile, timeElapsed / duration);
+        timeElapsed += Time.deltaTime;
     }
 }
