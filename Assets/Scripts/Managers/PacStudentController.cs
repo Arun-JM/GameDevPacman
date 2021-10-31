@@ -10,7 +10,7 @@ public class PacStudentController : MonoBehaviour
     private float timeElapsed;
     private Animator pacAnimator;
     private Tilemap tilemap;
-    private const float duration = 5f;
+    private const float duration = 1f;
     private Vector3 movement;
     private Vector3 previousPosition;
     private Vector3Int nextTile;
@@ -19,6 +19,7 @@ public class PacStudentController : MonoBehaviour
     {
         tilemap = GameObject.FindGameObjectWithTag("Map").GetComponentInChildren<Tilemap>();
         pacAnimator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -38,23 +39,27 @@ public class PacStudentController : MonoBehaviour
             switch (lastInput)
             {
                 case "a":
-                    movement = new Vector3(-0.5f, 0, 0);
+                    movement = new Vector3(-0.2f, 0, 0);
                     break;
                 case "d":
-                    movement = new Vector3(0.5f, 0, 0);
+                    movement = new Vector3(0.2f, 0, 0);
                     break;
                 case "w":
-                    movement = new Vector3(0, 0.5f, 0);
+                    movement = new Vector3(0, 0.2f, 0);
                     break;
                 case "s":
-                    movement = new Vector3(0, -0.5f, 0);
+                    movement = new Vector3(0, -0.2f, 0);
                     break;
                 default:
                     break;
             }
-            Debug.Log(nextTile);
             timeElapsed = 0;
             previousPosition = transform.position;
+            nextTile = tilemap.WorldToCell(previousPosition + movement);
+            if (tilemap.GetSprite(nextTile) != null && !tilemap.GetSprite(nextTile).name.Equals("RegPellet"))
+            {
+                movement = Vector3.zero;
+            }
         } else
         {
             float t = timeElapsed / duration;
