@@ -22,6 +22,8 @@ public class PacStudentController : MonoBehaviour
         tilemap = GameObject.FindGameObjectWithTag("Map").GetComponentInChildren<Tilemap>();
         pacAnimator = GetComponent<Animator>();
         pacAudio = GetComponentInChildren<AudioSource>();
+        pacAudio.Stop();
+        pacAudio.clip = null;
     }
 
     // Update is called once per frame
@@ -72,7 +74,7 @@ public class PacStudentController : MonoBehaviour
             } else if (tilemap.GetSprite(nextTile).name.Equals("RegPellet"))
             {
                pacAudio.clip = movementAudio[1];
-               pacAudio.PlayOneShot(movementAudio[1]);
+               if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
             }
             
         } else
