@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CherryController : MonoBehaviour
 {
-    private int sideSelect = 1;
+    private int sideSelect;
     private float timeElapsed;
     public GameObject Cherry;
     private GameObject newCherry;
@@ -24,6 +24,7 @@ public class CherryController : MonoBehaviour
         if (timeElapsed >= duration)
         {
             Destroy(newCherry);
+            timeElapsed = 0;
         }
         if (newCherry != null)
         {
@@ -35,11 +36,18 @@ public class CherryController : MonoBehaviour
 
     void GenerateCherry()
     {
-        //sideSelect = Random.Range(1, 5);
+        sideSelect = Random.Range(1, 3);
         if (sideSelect == 1)
         {
             float verborderPos = Random.Range(-mainCamera.orthographicSize, mainCamera.orthographicSize);
             float horborderPos = -mainCamera.orthographicSize * mainCamera.aspect + 1;
+            newPosition = new Vector3(horborderPos - 1, verborderPos + 1, 0f);
+            newCherry = Instantiate(Cherry, newPosition, Quaternion.identity);
+        }
+        if (sideSelect == 2)
+        {
+            float verborderPos = Random.Range(-mainCamera.orthographicSize, mainCamera.orthographicSize);
+            float horborderPos = mainCamera.orthographicSize * mainCamera.aspect + 1;
             newPosition = new Vector3(horborderPos, verborderPos, 0f);
             newCherry = Instantiate(Cherry, newPosition, Quaternion.identity);
         }
