@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Map
   - ExitButton
+  - Cherry
   layers:
   - Default
   - TransparentFX
