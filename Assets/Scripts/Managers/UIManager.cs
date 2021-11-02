@@ -6,20 +6,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public int Score = 0;
-    private Text scoreLabel;
-    private bool GameLoaded = false;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        Score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameLoaded == true) { scoreLabel.text = "Score: " + Score; }
+        
     }
 
     public void LoadFirstLevel()
@@ -36,7 +32,7 @@ public class UIManager : MonoBehaviour
     public void ExitFirstLevel()
     {
         SceneManager.LoadSceneAsync(0);
-        GameLoaded = false;
+        
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -44,8 +40,7 @@ public class UIManager : MonoBehaviour
        if (scene.buildIndex == 1) { 
             Button button = GameObject.FindGameObjectWithTag("ExitButton").GetComponent<Button>();
             button.onClick.AddListener(ExitFirstLevel);
-            scoreLabel = GameObject.FindGameObjectWithTag("ScoreLabel").GetComponent<Text>();
-            GameLoaded = true;
+           
         }
     }
 }

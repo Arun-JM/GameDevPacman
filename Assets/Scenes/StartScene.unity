@@ -568,7 +568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: -229}
+  m_AnchoredPosition: {x: -136, y: -214}
   m_SizeDelta: {x: 295, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623299549
@@ -1740,8 +1740,8 @@ GameObject:
   - component: {fileID: 2058664848}
   - component: {fileID: 2058664849}
   m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
+  m_Name: MenuManager
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1939,7 +1939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184.5, y: -250}
+  m_AnchoredPosition: {x: -184.5, y: -235}
   m_SizeDelta: {x: 200, y: 28.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113466621

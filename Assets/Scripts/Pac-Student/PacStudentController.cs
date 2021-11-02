@@ -20,7 +20,7 @@ public class PacStudentController : MonoBehaviour
     private ParticleSystem particleImpact;
     private List<Vector3Int> listTeleport = new List<Vector3Int>();
     private bool teleportFlag = false;
-    private UIManager UIManager;
+    private GameUIManager GameUIManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +31,8 @@ public class PacStudentController : MonoBehaviour
         pacAudio.clip = null;
         particleImpact = GameObject.FindGameObjectWithTag("Impact").GetComponent<ParticleSystem>();
         particleImpact.Stop();
-        UIManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<UIManager>();
-        for (int y = tilemap.origin.y; y < (tilemap.origin.y + tilemap.size.y); y++)
+        GameUIManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameUIManager>();
+        for (int y = tilemap.origin.y; y < (tilemap.origin.y + tilemap.size.y); y++) // Gets the position of all Teleporter Tiles in Tilemap
         {
             for (int x = tilemap.origin.x; x < (tilemap.origin.x + tilemap.size.x); x++)
             {
@@ -48,7 +48,7 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.W)) { // Gets the last input
             lastInput = "w";
         } else if (Input.GetKeyDown(KeyCode.S)) {
             lastInput = "s";
@@ -57,7 +57,7 @@ public class PacStudentController : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.D)) {
             lastInput = "d";
         }
-        if (timeElapsed >= duration || movement == Vector3.zero)
+        if (timeElapsed >= duration || movement == Vector3.zero) // Sets the direction of movement
         {
             switch (lastInput)
             {
@@ -96,15 +96,15 @@ public class PacStudentController : MonoBehaviour
                teleportFlag = false;
                if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
                 tilemap.SetTile(nextTile, null);
-                UIManager.Score += 10;
-            } else if (tilemap.GetSprite(nextTile).name.Equals("Teleporter"))
+                GameUIManager.Score += 10;
+            } else if (tilemap.GetSprite(nextTile).name.Equals("Teleporter")) // If next tile is teleporter
             {
                 if (nextTile == listTeleport[0] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[1]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[1]); }
                 else if (nextTile == listTeleport[1] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[0]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[0]); }
             }
             
         } else
-        {
+        { // If movement found then lerp
             WallFlag = false;
             currentInput = lastInput;
             float t = timeElapsed / duration;
