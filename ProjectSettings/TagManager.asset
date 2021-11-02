@@ -8,6 +8,8 @@ TagManager:
   - ExitButton
   - Cherry
   - Impact
+  - ScoreLabel
+  - Manager
   layers:
   - Default
   - TransparentFX

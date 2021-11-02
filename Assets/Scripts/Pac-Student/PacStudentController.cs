@@ -12,7 +12,7 @@ public class PacStudentController : MonoBehaviour
     private AudioSource pacAudio;
     public AudioClip[] movementAudio = new AudioClip[3];
     private Tilemap tilemap;
-    private const float duration = 1f;
+    private const float duration = 0.5f;
     private Vector3 movement;
     private Vector3 previousPosition;
     private Vector3Int nextTile;
@@ -20,6 +20,7 @@ public class PacStudentController : MonoBehaviour
     private ParticleSystem particleImpact;
     private List<Vector3Int> listTeleport = new List<Vector3Int>();
     private bool teleportFlag = false;
+    private UIManager UIManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class PacStudentController : MonoBehaviour
         pacAudio.clip = null;
         particleImpact = GameObject.FindGameObjectWithTag("Impact").GetComponent<ParticleSystem>();
         particleImpact.Stop();
+        UIManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<UIManager>();
         for (int y = tilemap.origin.y; y < (tilemap.origin.y + tilemap.size.y); y++)
         {
             for (int x = tilemap.origin.x; x < (tilemap.origin.x + tilemap.size.x); x++)
@@ -91,8 +93,10 @@ public class PacStudentController : MonoBehaviour
             } else if (tilemap.GetSprite(nextTile).name.Equals("RegPellet")) // If Next Tile is Pellet
             {
                pacAudio.clip = movementAudio[1];
-                teleportFlag = false;
-                if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
+               teleportFlag = false;
+               if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
+                tilemap.SetTile(nextTile, null);
+                UIManager.Score += 10;
             } else if (tilemap.GetSprite(nextTile).name.Equals("Teleporter"))
             {
                 if (nextTile == listTeleport[0] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[1]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[1]); }

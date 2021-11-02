@@ -30,7 +30,6 @@ public class CherryController : MonoBehaviour
         {
             newCherry.transform.position = Vector3.Lerp(newPosition, Vector3.Scale(newPosition, new Vector3(-1, -1, 0)), timeElapsed / duration);
             timeElapsed += Time.deltaTime;
-           
         }
     }
 
