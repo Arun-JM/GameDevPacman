@@ -57,7 +57,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 4be15f45b7b2a0240b620919d287f7cb, type: 3}
     - {fileID: 102900000, guid: 9c6f93911fe5f634da0b7cd3c8a188ba, type: 3}
-    totalSpriteSurfaceArea: 79564
+    totalSpriteSurfaceArea: 276172
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -88,6 +88,7 @@ SpriteAtlas:
   - {fileID: 9222518199860995307, guid: c48f7775c1eff3443aed938941d4ed55, type: 3}
   - {fileID: -7941634623608527641, guid: c48f7775c1eff3443aed938941d4ed55, type: 3}
   - {fileID: 21300000, guid: ee20a3f592293a64ebdf088f01e32c1e, type: 3}
+  - {fileID: 21300000, guid: 485dd2969dfe0954985d0bfc4fe22254, type: 3}
   - {fileID: 21300000, guid: 65cfb9c6b5556634aa74bbb045045846, type: 3}
   - {fileID: -6439084533476692082, guid: 6a08f9f9f003aae45ab5e2b1ea09f961, type: 3}
   - {fileID: -2779897750473906189, guid: 6a08f9f9f003aae45ab5e2b1ea09f961, type: 3}
@@ -113,7 +114,6 @@ SpriteAtlas:
   - {fileID: 7460213676813845942, guid: db69444e52be5db4b9c0d689c7d077a6, type: 3}
   - {fileID: 1278874877047874051, guid: db69444e52be5db4b9c0d689c7d077a6, type: 3}
   - {fileID: 7240671279801520147, guid: db69444e52be5db4b9c0d689c7d077a6, type: 3}
-  - {fileID: 21300000, guid: 81b770ee36973554ebcf86dbd6288e1b, type: 3}
   - {fileID: -4203885075546708260, guid: ba64303f619f24c45b719a889a6e81bb, type: 3}
   - {fileID: 2934161056422861923, guid: ba64303f619f24c45b719a889a6e81bb, type: 3}
   - {fileID: -8856807939630675488, guid: ba64303f619f24c45b719a889a6e81bb, type: 3}
@@ -146,6 +146,7 @@ SpriteAtlas:
   - UFORed_0
   - UFORed_4
   - BigOutCorner
+  - Teleporter
   - BigInCorner
   - UFOScared_4
   - UFOScared_0
@@ -171,7 +172,6 @@ SpriteAtlas:
   - RocketDeath_3
   - RocketDeath_0
   - RocketDeath_1
-  - Teleporter
   - UFODead_2
   - UFODead_3
   - UFODead_0

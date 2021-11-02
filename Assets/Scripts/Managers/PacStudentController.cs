@@ -19,6 +19,7 @@ public class PacStudentController : MonoBehaviour
     private bool WallFlag = false;
     private ParticleSystem particleImpact;
     private List<Vector3Int> listTeleport = new List<Vector3Int>();
+    private bool teleportFlag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +34,9 @@ public class PacStudentController : MonoBehaviour
         {
             for (int x = tilemap.origin.x; x < (tilemap.origin.x + tilemap.size.x); x++)
             {
-                TileBase temp = tilemap.GetTile(new Vector3Int(x, y, 0));
-                if (temp != null && )
+                Vector3Int temp = new Vector3Int(x, y, 0);
+                if (tilemap.GetTile(temp) != null && tilemap.GetSprite(temp).name.Equals("Teleporter"))
                 {
-                    Debug.Log("Teleporter Found");
                     listTeleport.Add(new Vector3Int(x, y, 0));
                 }
             }
@@ -81,20 +81,22 @@ public class PacStudentController : MonoBehaviour
             timeElapsed = 0;
             previousPosition = transform.position;
             nextTile = tilemap.WorldToCell(previousPosition + movement);
-            if (tilemap.GetSprite(nextTile) != null && !tilemap.GetSprite(nextTile).name.Equals("RegPellet")) // If Wall if Hit
+            if (tilemap.GetSprite(nextTile) != null && !tilemap.GetSprite(nextTile).name.Equals("RegPellet") && !tilemap.GetSprite(nextTile).name.Equals("Teleporter")) // If Wall if Hit
             {
                 if (WallFlag == false) { pacAudio.clip = movementAudio[2]; pacAudio.PlayOneShot(movementAudio[2]); WallFlag = true; particleImpact.Play(); }
                 movement = Vector3.zero;
             } else if (tilemap.GetSprite(nextTile) == null) { // If Next Tile is Blank
                 if (pacAudio.clip != movementAudio[0]) { pacAudio.clip = movementAudio[0]; pacAudio.Play(); }
+                teleportFlag = false;
             } else if (tilemap.GetSprite(nextTile).name.Equals("RegPellet")) // If Next Tile is Pellet
             {
                pacAudio.clip = movementAudio[1];
-               if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
-            } else if (tilemap.GetTile(nextTile).name.Equals("Teleporter"))
+                teleportFlag = false;
+                if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
+            } else if (tilemap.GetSprite(nextTile).name.Equals("Teleporter"))
             {
-                if (nextTile == listTeleport[0]) { transform.position = tilemap.GetCellCenterWorld(listTeleport[1]); }
-                if (nextTile == listTeleport[1]) { transform.position = tilemap.GetCellCenterWorld(listTeleport[0]); }
+                if (nextTile == listTeleport[0] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[1]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[1]); }
+                else if (nextTile == listTeleport[1] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[0]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[0]); }
             }
             
         } else
