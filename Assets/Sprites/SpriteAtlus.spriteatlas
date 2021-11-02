@@ -57,7 +57,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 4be15f45b7b2a0240b620919d287f7cb, type: 3}
     - {fileID: 102900000, guid: 9c6f93911fe5f634da0b7cd3c8a188ba, type: 3}
-    totalSpriteSurfaceArea: 14028
+    totalSpriteSurfaceArea: 79564
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -113,6 +113,7 @@ SpriteAtlas:
   - {fileID: 7460213676813845942, guid: db69444e52be5db4b9c0d689c7d077a6, type: 3}
   - {fileID: 1278874877047874051, guid: db69444e52be5db4b9c0d689c7d077a6, type: 3}
   - {fileID: 7240671279801520147, guid: db69444e52be5db4b9c0d689c7d077a6, type: 3}
+  - {fileID: 21300000, guid: 81b770ee36973554ebcf86dbd6288e1b, type: 3}
   - {fileID: -4203885075546708260, guid: ba64303f619f24c45b719a889a6e81bb, type: 3}
   - {fileID: 2934161056422861923, guid: ba64303f619f24c45b719a889a6e81bb, type: 3}
   - {fileID: -8856807939630675488, guid: ba64303f619f24c45b719a889a6e81bb, type: 3}
@@ -170,6 +171,7 @@ SpriteAtlas:
   - RocketDeath_3
   - RocketDeath_0
   - RocketDeath_1
+  - Teleporter
   - UFODead_2
   - UFODead_3
   - UFODead_0
