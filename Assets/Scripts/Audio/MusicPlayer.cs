@@ -25,4 +25,16 @@ public class MusicPlayer : MonoBehaviour
             audioSource.PlayOneShot(NormalBackground);
         }
     }
+
+    public void PlayScaredBackground()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(ScaredBackground);
+    }
+
+    public void PlayNormalBackground()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(NormalBackground);
+    }
 }
