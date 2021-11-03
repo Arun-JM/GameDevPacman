@@ -12,6 +12,7 @@ TagManager:
   - Manager
   - Enemy
   - Life
+  - Timer
   layers:
   - Default
   - TransparentFX

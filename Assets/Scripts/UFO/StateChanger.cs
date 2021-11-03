@@ -9,7 +9,9 @@ public class StateChanger : MonoBehaviour
     private Text textScaredTime;
     private MusicPlayer musicPlayer;
     private float timeRemaining = 0f;
-    private bool scaredState = false;
+    public bool scaredState = false;
+    private bool deadState = false;
+    public bool recoverState = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class StateChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (scaredState == true)
+        if (scaredState == true)
         {
             timeRemaining -= Time.deltaTime;
             if (timeRemaining <= 0)
@@ -32,6 +34,15 @@ public class StateChanger : MonoBehaviour
                 SetRecover();
             } 
             textScaredTime.text = "Scared Time Remaining: " + (int)timeRemaining;
+        } else if (deadState == true)
+        {
+            timeRemaining -= Time.deltaTime;
+           
+            if (timeRemaining <= 0)
+            {
+                
+                SetNormal();
+            }
         }
     }
 
@@ -50,7 +61,12 @@ public class StateChanger : MonoBehaviour
     {
         ufoAnim.SetBool("Dead", true);
         ufoAnim.SetBool("Scared", false);
-
+        ufoAnim.SetBool("Normal", false);
+        ufoAnim.SetBool("Recover", false);
+        timeRemaining = 5f;
+        deadState = true;
+        scaredState = false;
+        musicPlayer.PlayDeadBackground();
     }
     public void SetRecover()
     {
@@ -67,8 +83,13 @@ public class StateChanger : MonoBehaviour
         ufoAnim.SetBool("Scared", false);
         ufoAnim.SetBool("Dead", false);
         scaredState = false;
+        deadState = false;
         timeRemaining = 0f;
         textScaredTime.enabled = false;
         musicPlayer.PlayNormalBackground();
     }
+
+  
+   
+    
 }

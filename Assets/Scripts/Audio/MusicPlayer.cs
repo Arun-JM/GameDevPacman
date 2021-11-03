@@ -37,4 +37,10 @@ public class MusicPlayer : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(NormalBackground);
     }
+
+    public void PlayDeadBackground()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(DeadBackground);
+    }
 }

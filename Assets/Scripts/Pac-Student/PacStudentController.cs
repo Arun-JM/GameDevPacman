@@ -96,7 +96,7 @@ public class PacStudentController : MonoBehaviour
                teleportFlag = false;
                if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
                 tilemap.SetTile(nextTile, null);
-                GameUIManager.Score += 10;
+                GameUIManager.ScoreUpdater(10);
             } else if (tilemap.GetSprite(nextTile).name.Equals("Teleporter")) // If next tile is teleporter
             {
                 if (nextTile == listTeleport[0] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[1]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[1]); }

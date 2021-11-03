@@ -20,7 +20,7 @@ public class CherryCollision : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            Manager.GetComponent<GameUIManager>().Score += 100;
+            Manager.GetComponent<GameUIManager>().ScoreUpdater(100);
             Destroy(this.gameObject);
         }
     }
