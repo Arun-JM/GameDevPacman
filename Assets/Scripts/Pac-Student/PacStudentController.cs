@@ -6,15 +6,15 @@ using UnityEngine;
 public class PacStudentController : MonoBehaviour
 {
     private string currentInput;
-    private string lastInput;
+    public string lastInput;
     private float timeElapsed;
     private Animator pacAnimator;
     private AudioSource pacAudio;
     public AudioClip[] movementAudio = new AudioClip[3];
     private Tilemap tilemap;
     private const float duration = 0.5f;
-    private Vector3 movement;
-    private Vector3 previousPosition;
+    public Vector3 movement;
+    public Vector3 previousPosition;
     private Vector3Int nextTile;
     private bool WallFlag = false;
     private ParticleSystem particleImpact;

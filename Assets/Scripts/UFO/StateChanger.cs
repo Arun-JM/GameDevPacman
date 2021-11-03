@@ -27,10 +27,11 @@ public class StateChanger : MonoBehaviour
             if (timeRemaining <= 0)
             {
                 SetNormal();
-            } else
+            } else if (timeRemaining <= 3)
             {
-                textScaredTime.text = "Scared Time Remaining: " + (int)timeRemaining;
-            }
+                SetRecover();
+            } 
+            textScaredTime.text = "Scared Time Remaining: " + (int)timeRemaining;
         }
     }
 
@@ -49,11 +50,15 @@ public class StateChanger : MonoBehaviour
     {
         ufoAnim.SetBool("Dead", true);
         ufoAnim.SetBool("Scared", false);
+
     }
     public void SetRecover()
     {
         ufoAnim.SetBool("Recover", true);
         ufoAnim.SetBool("Dead", false);
+        ufoAnim.SetBool("Scared", false);
+        ufoAnim.SetBool("Normal", false);
+
     }
     public void SetNormal()
     {
