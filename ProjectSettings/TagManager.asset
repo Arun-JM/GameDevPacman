@@ -13,6 +13,9 @@ TagManager:
   - Enemy
   - Life
   - Timer
+  - ScoreTimer
+  - HighScore
+  - btnLevel1
   layers:
   - Default
   - TransparentFX

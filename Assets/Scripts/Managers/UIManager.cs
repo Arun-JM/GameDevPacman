@@ -8,10 +8,19 @@ public class UIManager : MonoBehaviour
 {
     private Text textHighScore;
     private Text textTime;
+    private static UIManager instance;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);  
+        DontDestroyOnLoad(gameObject); 
+        if (instance == null)
+        {
+            instance = this;
+        }  else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        LoadScoreText();
     }
 
     // Update is called once per frame
@@ -45,11 +54,19 @@ public class UIManager : MonoBehaviour
            
         } else if (scene.buildIndex == 0)
         {
-            Debug.Log("Reached");
-            textHighScore = GameObject.Find("txtScore").GetComponent<Text>();
-            textTime = GameObject.Find("txtTime").GetComponent<Text>();
-            textHighScore.text = "Previous High Score: " + PlayerPrefs.GetInt("HighScore");
-            textTime.text = "Previous High Score Time: " + PlayerPrefs.GetString("GameTime");          
+            LoadScoreText();
+            Button button = GameObject.FindGameObjectWithTag("btnLevel1").GetComponent<Button>();
+            button.onClick.AddListener(LoadFirstLevel);
         }
+    }
+
+    private void LoadScoreText()
+    {
+        textHighScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<Text>();
+        textTime = GameObject.FindGameObjectWithTag("ScoreTimer").GetComponent<Text>();
+        string HighScore = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        string time = PlayerPrefs.GetString("GameTime", "00:00:00").ToString();
+        textHighScore.text = "Previous Text High Score: " + HighScore;
+        textTime.text = "Previous High Score Time: " + time;
     }
 }

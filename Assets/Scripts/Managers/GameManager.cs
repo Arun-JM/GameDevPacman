@@ -49,12 +49,17 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         manager.gameStart = false;
-        pacStudent.SetActive(false);
-        PlayerPrefs.SetInt("HighScore", manager.Score);
-        string time = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>().text;
-        time.Replace("Game Time: ", "");
-        PlayerPrefs.SetString("GameTime", time);
+        int PreviousScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (manager.Score > PreviousScore)
+        {
+            PlayerPrefs.SetInt("HighScore", manager.Score);
+            string time = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>().text;
+            time = time.Replace("Game Time: ", "");
+            PlayerPrefs.SetString("GameTime", time);
+            PlayerPrefs.Save();
+        }
         backgroundaudio.enabled = false;
+        pacStudent.SetActive(false);
         backgroundaudio.GetComponent<MusicPlayer>().enabled = false;
         StartCoroutine("ShowGameOverScreen");
     }
