@@ -65,8 +65,11 @@ public class UIManager : MonoBehaviour
         textHighScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<Text>();
         textTime = GameObject.FindGameObjectWithTag("ScoreTimer").GetComponent<Text>();
         string HighScore = PlayerPrefs.GetInt("HighScore", 0).ToString();
-        string time = PlayerPrefs.GetString("GameTime", "00:00:00").ToString();
+        float gameTime = PlayerPrefs.GetFloat("GameTime", 0);
+        string minutes = Mathf.Floor(gameTime / 60).ToString("00");
+        string seconds = Mathf.Floor((gameTime % 60)).ToString("00");
+        string milseconds = ((int)((gameTime * 1000) % 1000) / 10).ToString("00");
         textHighScore.text = "Previous Text High Score: " + HighScore;
-        textTime.text = "Previous High Score Time: " + time;
+        textTime.text = "Previous High Score Time: " + minutes + ":" + seconds + ":" + milseconds;
     }
 }

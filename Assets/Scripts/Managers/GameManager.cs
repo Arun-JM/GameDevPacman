@@ -50,12 +50,11 @@ public class GameManager : MonoBehaviour
     {
         manager.gameStart = false;
         int PreviousScore = PlayerPrefs.GetInt("HighScore", 0);
-        if (manager.Score > PreviousScore)
+        float PreviousTime = PlayerPrefs.GetFloat("GameTime", 0);
+        if (manager.Score > PreviousScore || (manager.Score == PreviousScore && manager.gameTime < PreviousTime))
         {
             PlayerPrefs.SetInt("HighScore", manager.Score);
-            string time = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>().text;
-            time = time.Replace("Game Time: ", "");
-            PlayerPrefs.SetString("GameTime", time);
+            PlayerPrefs.SetFloat("GameTime", manager.gameTime);
             PlayerPrefs.Save();
         }
         backgroundaudio.enabled = false;

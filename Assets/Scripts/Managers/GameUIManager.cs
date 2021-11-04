@@ -8,7 +8,7 @@ public class GameUIManager : MonoBehaviour
     public int Score = 0;
     private Text scoreLabel;
     private Text timeLabel;
-    private float gameTime;
+    public float gameTime;
     private GameObject hud;
     public bool gameStart = false;
     // Start is called before the first frame update
