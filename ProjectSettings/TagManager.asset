@@ -7,6 +7,15 @@ TagManager:
   - Map
   - ExitButton
   - Cherry
+  - Impact
+  - ScoreLabel
+  - Manager
+  - Enemy
+  - Life
+  - Timer
+  - ScoreTimer
+  - HighScore
+  - btnLevel1
   layers:
   - Default
   - TransparentFX

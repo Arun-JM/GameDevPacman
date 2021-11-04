@@ -14,7 +14,7 @@ public class CherryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("GenerateCherry", 5f, 10f);
+        InvokeRepeating("GenerateCherry", 10f, 15f);
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
@@ -30,7 +30,6 @@ public class CherryController : MonoBehaviour
         {
             newCherry.transform.position = Vector3.Lerp(newPosition, Vector3.Scale(newPosition, new Vector3(-1, -1, 0)), timeElapsed / duration);
             timeElapsed += Time.deltaTime;
-           
         }
     }
 

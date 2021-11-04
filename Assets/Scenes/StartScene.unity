@@ -546,8 +546,8 @@ GameObject:
   - component: {fileID: 623299550}
   - component: {fileID: 623299549}
   m_Layer: 5
-  m_Name: txtTime
-  m_TagString: Untagged
+  m_Name: txtTimeMatch
+  m_TagString: ScoreTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,8 +568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: -229}
-  m_SizeDelta: {x: 295, y: 40}
+  m_AnchoredPosition: {x: -101.75, y: -237.54}
+  m_SizeDelta: {x: 363.5, y: 40.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623299549
 MonoBehaviour:
@@ -604,7 +604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Previous Time: 00:00:00
+  m_Text: 'Previous High Score Time: 00:00:00
 
 '
 --- !u!222 &623299550
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 907911582}
   - component: {fileID: 907911581}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 1481143864}
   m_Layer: 5
   m_Name: BtnLevel1
-  m_TagString: Untagged
+  m_TagString: btnLevel1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1740,7 +1740,7 @@ GameObject:
   - component: {fileID: 2058664848}
   - component: {fileID: 2058664849}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1917,8 +1917,8 @@ GameObject:
   - component: {fileID: 2113466622}
   - component: {fileID: 2113466621}
   m_Layer: 5
-  m_Name: txtScore
-  m_TagString: Untagged
+  m_Name: txtHighScore
+  m_TagString: HighScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1939,8 +1939,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184.5, y: -250}
-  m_SizeDelta: {x: 200, y: 28.66}
+  m_AnchoredPosition: {x: -120.87, y: -207.26}
+  m_SizeDelta: {x: 327.25, y: 27.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113466621
 MonoBehaviour:
@@ -1975,7 +1975,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Previous Score: 0'
+  m_Text: 'Previous High Score: 0'
 --- !u!222 &2113466622
 CanvasRenderer:
   m_ObjectHideFlags: 0

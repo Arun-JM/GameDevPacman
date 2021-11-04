@@ -57,7 +57,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 4be15f45b7b2a0240b620919d287f7cb, type: 3}
     - {fileID: 102900000, guid: 9c6f93911fe5f634da0b7cd3c8a188ba, type: 3}
-    totalSpriteSurfaceArea: 14028
+    totalSpriteSurfaceArea: 276172
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -88,6 +88,7 @@ SpriteAtlas:
   - {fileID: 9222518199860995307, guid: c48f7775c1eff3443aed938941d4ed55, type: 3}
   - {fileID: -7941634623608527641, guid: c48f7775c1eff3443aed938941d4ed55, type: 3}
   - {fileID: 21300000, guid: ee20a3f592293a64ebdf088f01e32c1e, type: 3}
+  - {fileID: 21300000, guid: 485dd2969dfe0954985d0bfc4fe22254, type: 3}
   - {fileID: 21300000, guid: 65cfb9c6b5556634aa74bbb045045846, type: 3}
   - {fileID: -6439084533476692082, guid: 6a08f9f9f003aae45ab5e2b1ea09f961, type: 3}
   - {fileID: -2779897750473906189, guid: 6a08f9f9f003aae45ab5e2b1ea09f961, type: 3}
@@ -145,6 +146,7 @@ SpriteAtlas:
   - UFORed_0
   - UFORed_4
   - BigOutCorner
+  - Teleporter
   - BigInCorner
   - UFOScared_4
   - UFOScared_0
