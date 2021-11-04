@@ -20,10 +20,7 @@ public class MusicPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(NormalBackground);
-        }
+       
     }
 
     public void PlayScaredBackground()

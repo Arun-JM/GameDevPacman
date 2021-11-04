@@ -8,7 +8,7 @@ public class PacStudentState : MonoBehaviour
     private Animator pacAnim;
     private List<GameObject> lifeBar = new List<GameObject>();
     private ParticleSystem explosion;
-    private int Health;
+    public int Health;
     private bool hit = false;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class PacStudentState : MonoBehaviour
     {
         if (Health == 0)
         {
-           
+            GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
         }
     }
 

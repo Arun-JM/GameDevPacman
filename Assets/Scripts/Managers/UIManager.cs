@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    private Text textHighScore;
+    private Text textTime;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);  
     }
 
     // Update is called once per frame
@@ -37,10 +39,17 @@ public class UIManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-       if (scene.buildIndex == 1) { 
+        if (scene.buildIndex == 1) { 
             Button button = GameObject.FindGameObjectWithTag("ExitButton").GetComponent<Button>();
             button.onClick.AddListener(ExitFirstLevel);
            
+        } else if (scene.buildIndex == 0)
+        {
+            Debug.Log("Reached");
+            textHighScore = GameObject.Find("txtScore").GetComponent<Text>();
+            textTime = GameObject.Find("txtTime").GetComponent<Text>();
+            textHighScore.text = "Previous High Score: " + PlayerPrefs.GetInt("HighScore");
+            textTime.text = "Previous High Score Time: " + PlayerPrefs.GetString("GameTime");          
         }
     }
 }

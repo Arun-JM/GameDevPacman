@@ -568,7 +568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136, y: -214}
+  m_AnchoredPosition: {x: -136, y: -237.1}
   m_SizeDelta: {x: 295, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623299549
@@ -604,7 +604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Previous Time: 00:00:00
+  m_Text: 'Previous High Score Time: 00:00:00
 
 '
 --- !u!222 &623299550
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 907911582}
   - component: {fileID: 907911581}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1741,7 +1741,7 @@ GameObject:
   - component: {fileID: 2058664849}
   m_Layer: 0
   m_Name: MenuManager
-  m_TagString: Manager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1939,7 +1939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184.5, y: -235}
+  m_AnchoredPosition: {x: -184.5, y: -207.7}
   m_SizeDelta: {x: 200, y: 28.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113466621
@@ -1975,7 +1975,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Previous Score: 0'
+  m_Text: 'Previous High Score: 0'
 --- !u!222 &2113466622
 CanvasRenderer:
   m_ObjectHideFlags: 0

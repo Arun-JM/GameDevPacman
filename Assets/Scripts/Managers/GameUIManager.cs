@@ -10,6 +10,7 @@ public class GameUIManager : MonoBehaviour
     private Text timeLabel;
     private float gameTime;
     private GameObject hud;
+    public bool gameStart = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,6 @@ public class GameUIManager : MonoBehaviour
     void Update()
     {
         scoreLabel.text = "Score: " + Score;
-       
-        
     }
 
     public void ScoreUpdater(int add)
@@ -34,10 +33,13 @@ public class GameUIManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        gameTime += Time.fixedDeltaTime;
-        string minutes = Mathf.Floor(gameTime / 60).ToString("00");
-        string seconds = Mathf.Floor((gameTime % 60)).ToString("00");
-        string milseconds = ((int)((gameTime * 1000) % 1000) / 10).ToString("00");
-        timeLabel.text = "Game Time: " + minutes + ":" + seconds + ":" + milseconds;
+        if (gameStart == true)
+        {
+            gameTime += Time.fixedDeltaTime;
+            string minutes = Mathf.Floor(gameTime / 60).ToString("00");
+            string seconds = Mathf.Floor((gameTime % 60)).ToString("00");
+            string milseconds = ((int)((gameTime * 1000) % 1000) / 10).ToString("00");
+            timeLabel.text = "Game Time: " + minutes + ":" + seconds + ":" + milseconds;
+        }
     }
 }

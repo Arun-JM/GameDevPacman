@@ -20,7 +20,8 @@ public class PacStudentController : MonoBehaviour
     private ParticleSystem particleImpact;
     private List<Vector3Int> listTeleport = new List<Vector3Int>();
     private bool teleportFlag = false;
-    private GameUIManager GameUIManager;
+    public int pelletCount;
+    private GameUIManager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +31,8 @@ public class PacStudentController : MonoBehaviour
         pacAudio.Stop();
         pacAudio.clip = null;
         particleImpact = GameObject.FindGameObjectWithTag("Impact").GetComponent<ParticleSystem>();
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameUIManager>();
         particleImpact.Stop();
-        GameUIManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameUIManager>();
         for (int y = tilemap.origin.y; y < (tilemap.origin.y + tilemap.size.y); y++) // Gets the position of all Teleporter Tiles in Tilemap
         {
             for (int x = tilemap.origin.x; x < (tilemap.origin.x + tilemap.size.x); x++)
@@ -40,6 +41,9 @@ public class PacStudentController : MonoBehaviour
                 if (tilemap.GetTile(temp) != null && tilemap.GetSprite(temp).name.Equals("Teleporter"))
                 {
                     listTeleport.Add(new Vector3Int(x, y, 0));
+                } else if (tilemap.GetTile(temp) != null && tilemap.GetSprite(temp).name.Equals("RegPellet"))
+                {
+                    pelletCount++;
                 }
             }
         }
@@ -96,7 +100,12 @@ public class PacStudentController : MonoBehaviour
                teleportFlag = false;
                if (!pacAudio.isPlaying && (movement != null && movement != Vector3.zero)) { pacAudio.PlayOneShot(movementAudio[1]); }
                 tilemap.SetTile(nextTile, null);
-                GameUIManager.ScoreUpdater(10);
+                manager.ScoreUpdater(10);
+                pelletCount--;
+                if (pelletCount <= 0)
+                {
+                    GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().GameOver();
+                } 
             } else if (tilemap.GetSprite(nextTile).name.Equals("Teleporter")) // If next tile is teleporter
             {
                 if (nextTile == listTeleport[0] && teleportFlag == false) { transform.position = tilemap.GetCellCenterWorld(listTeleport[1]); teleportFlag = true; previousPosition = tilemap.GetCellCenterWorld(listTeleport[1]); }
